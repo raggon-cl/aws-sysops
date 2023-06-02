@@ -1,5 +1,4 @@
 #/bin/bash
-
 #Disable SELINUX
 sudo setenforce 0
 
