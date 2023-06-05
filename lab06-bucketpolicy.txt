@@ -1,0 +1,30 @@
+{
+  "Id": "Policy1511250457149",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1511250210874",
+      "Action": "s3:*",
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::cloudthat-s3-demo/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": ["WIFI_PUBLIC_IPv4"]
+        }
+      },
+      "Principal": "*"
+    },
+    {
+      "Sid": "Stmt1511250354995",
+      "Action": "s3:*",
+      "Effect": "Deny",
+      "Resource": "arn:aws:s3:::cloudthat-s3-demo/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": ["MOBILE_PUBIC_IPv4"]
+        }
+      },
+      "Principal": "*"
+    }
+  ]
+}
