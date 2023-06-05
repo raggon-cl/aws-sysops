@@ -37,13 +37,13 @@ aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-0882d5db26a35f3d9" --
 
 #sg-05d8a23833e8d5350	lab02web-sg  //Segurity Group App Server
 
-aws ec2 run-instances --count 1 --image-id ami-03c5b241316591081 --instance-type t2.micro --security-group-ids sg-05d3196d1955fb0b2 --subnet-id subnet-0f8dd63d7fa61de30 --key-name training-keypair-us-e-1 --user-data file:///home/cloudshell-user/userdata.sh --tag-specifications 'ResourceType=instance,Tags=[{Key=Environment,Value=Training},{Key=Name,Value=l04t01-tg01vm01}]'
+aws ec2 run-instances --count 1 --image-id ami-0022f774911c1d690 --instance-type t2.micro --security-group-ids sg-05d8a23833e8d5350 --subnet-id subnet-0f8dd63d7fa61de30 --key-name training-keypair-us-e-1 --user-data file:///home/cloudshell-user/lab5-userdata.sh --tag-specifications 'ResourceType=instance,Tags=[{Key=Environment,Value=Training},{Key=Name,Value=l04t01-tg01vm01}]'
 
 
-aws ec2 run-instances --count 1 --image-id ami-03c5b241316591081 --instance-type t2.micro --security-group-ids sg-05d3196d1955fb0b2 --subnet-id subnet-046b731dde05b98ed --key-name training-keypair-us-e-1 --user-data file:///home/cloudshell-user/userdata.sh --tag-specifications 'ResourceType=instance,Tags=[{Key=Environment,Value=Training},{Key=Name,Value=l04t01-tg01vm02}]'
+aws ec2 run-instances --count 1 --image-id ami-0022f774911c1d690 --instance-type t2.micro --security-group-ids sg-05d3196d1955fb0b2 --subnet-id subnet-046b731dde05b98ed --key-name training-keypair-us-e-1 --user-data file:///home/cloudshell-user/lab5-userdata.sh --tag-specifications 'ResourceType=instance,Tags=[{Key=Environment,Value=Training},{Key=Name,Value=l04t01-tg01vm02}]'
 
 
-aws ec2 run-instances --count 1 --image-id ami-03c5b241316591081 --instance-type t2.micro --security-group-ids sg-05d3196d1955fb0b2 --subnet-id subnet-0f8dd63d7fa61de30 --key-name training-keypair-us-e-1 --user-data file:///home/cloudshell-user/userdata.sh --tag-specifications 'ResourceType=instance,Tags=[{Key=Environment,Value=Training},{Key=Name,Value=l04t01-tg02vm01}]'
+aws ec2 run-instances --count 1 --image-id ami-0022f774911c1d690 --instance-type t2.micro --security-group-ids sg-05d3196d1955fb0b2 --subnet-id subnet-0f8dd63d7fa61de30 --key-name training-keypair-us-e-1 --user-data file:///home/cloudshell-user/lab5-userdata.sh --tag-specifications 'ResourceType=instance,Tags=[{Key=Environment,Value=Training},{Key=Name,Value=l04t01-tg02vm01}]'
 
 l04t02-tg01-elb   arn:aws:elasticloadbalancing:us-east-1:466508081033:targetgroup/l04t02-tg01-elb/62f93ca7fae03358
 
