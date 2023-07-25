@@ -5,11 +5,11 @@ sudo setenforce 0
 #Habilitar el acceso en al SG asociado al servidor Wordpress
 
 #Connect to the RDS instance
-#mysql --host [RDS_INSTANCE_DNS] -uwpadmin -pPa55w0rd
-mysql -h l03t01-wp-db.cl1tgdhxatct.us-east-1.rds.amazonaws.com -uwpadmin -pPa55w0rd
+#mysql --host [RDS_INSTANCE_DNS] -uwpadmin -p<Password>
+mysql -h l03t01-wp-db.cl1tgdhxatct.us-east-1.rds.amazonaws.com -uwpadmin -p<Password>
 
 #Create WordPress user.
-CREATE USER 'wordpress'@'%' IDENTIFIED BY 'Pa55w0rd';
+CREATE USER 'wordpress'@'%' IDENTIFIED BY '<Password>';
 
 #Grant privileges
 GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'%';
@@ -22,10 +22,10 @@ CREATE DATABASE wordpress;
 exit
 
 #Take an export of the current database using MySQL dump.
-mysqldump -uwordpress -pPa55w0rd wordpress > wp-export.sql
+mysqldump -uwordpress -p<Password> wordpress > wp-export.sql
 
 #Import the MySQL dump into the RDS instance.
-mysql --host l03t01-wp-db.cl1tgdhxatct.us-east-1.rds.amazonaws.com -uwpadmin -pPa55w0rd wordpress < wp-export.sql
+mysql --host l03t01-wp-db.cl1tgdhxatct.us-east-1.rds.amazonaws.com -uwpadmin -p<Password> wordpress < wp-export.sql
 
 #Edit wp-config.php file to point to RDS instance instead of localhost.
 sudo sed -i 's@localhost@l03t01-wp-db.cl1tgdhxatct.us-east-1.rds.amazonaws.com@' /var/www/html/wp-config.php
