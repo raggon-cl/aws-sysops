@@ -18,7 +18,7 @@ systemctl enable --now mariadb
 
 # Add to the database
 echo 'CREATE DATABASE wordpress;' | mysql
-echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost' IDENTIFIED BY 'Pa55w0rd';" | mysql
+echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost' IDENTIFIED BY <Password>;" | mysql
 echo "FLUSH PRIVILEGES;" | mysql
 
 # Download and install WordPress
